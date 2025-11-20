@@ -1,15 +1,66 @@
-<iframe 
-    src="https://c.tenor.com/eNhvtoI3CeMAAAAC/tenor.gif"
-    style="
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        border: none;
+<!DOCTYPE html>
+<html>
+<head>
+<title>Luka the Good Boy</title>
+<style>
+    body {
         margin: 0;
         padding: 0;
-        overflow: hidden;
-        z-index: 9999;
-    ">
+        background: #f3f3f3;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 3rem;
+        max-width: 90%;
+    }
+
+    #lukaFrame {
+        display: none;
+        margin-top: 20px;
+        width: 80vw;
+        height: 60vh;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.25);
+    }
+
+    button {
+        margin-top: 20px;
+        padding: 12px 28px;
+        font-size: 1.2rem;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        background: #ff8c00;
+        color: white;
+        transition: 0.2s;
+    }
+
+    button:hover {
+        background: #ffa733;
+    }
+</style>
+</head>
+<body>
+
+<h1>Luka is such a good boy.  
+<br>He is the best good boy ever.</h1>
+
+<button onclick="document.getElementById('lukaFrame').style.display='block'">
+    Click to see a picture of Luka
+</button>
+
+<iframe 
+    id="lukaFrame"
+    src="https://c.tenor.com/eNhvtoI3CeMAAAAC/tenor.gif">
 </iframe>
+
+</body>
+</html>
