@@ -1,31 +1,89 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Google Chat</title>
-<style>
-    body {
-        margin: 0;
-        padding: 0;
-        background: #f3f3f3;
-        font-family: Arial, sans-serif;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        text-align: center;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Chat</title>
 
-    h1 {
-        font-size: 3rem;
-        max-width: 90%;
-    }
-</style>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f3f3f3;
+            font-family: Arial, sans-serif;
+        }
+
+        button {
+            padding: 18px 36px;
+            font-size: 22px;
+            font-weight: bold;
+            color: white;
+            background: #4285f4;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #3367d6;
+        }
+
+        #viewer {
+            display: none;
+            position: fixed;
+            inset: 0;
+            width: 100vw;
+            height: 100vh;
+            background: black;
+        }
+
+        #viewer:fullscreen {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        #viewer img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+    </style>
 </head>
-<body>
-<h1>Hello there 😏</h1>
 
-<iframe src="https://c.tenor.com/eNhvtoI3CeMAAAAC/tenor.gif" style = "width: 100%; height: 100%;"></iframe>
+<body>
+
+    <button id="proceed">Proceed to the Chat App</button>
+
+    <div id="viewer">
+        <img
+            src="https://c.tenor.com/eNhvtoI3CeMAAAAC/tenor.gif"
+            alt="Chat app"
+        >
+    </div>
+
+    <script>
+        const button = document.getElementById("proceed");
+        const viewer = document.getElementById("viewer");
+
+        button.addEventListener("click", async () => {
+            button.style.display = "none";
+            viewer.style.display = "block";
+
+            try {
+                await viewer.requestFullscreen();
+            } catch (error) {
+                console.log("Fullscreen mode was unavailable.");
+            }
+        });
+    </script>
 
 </body>
 </html>
